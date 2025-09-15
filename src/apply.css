@@ -1,0 +1,64 @@
+@import './a11y.css';
+
+.apply-layout {
+  box-shadow: 0 0 0 2px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 15px;
+
+  h1 {
+    place-items: center;
+    background-color: yellow;
+  }
+}
+
+form {
+  display: grid;
+  gap: 10px;
+
+  .error-message {
+    color: red;
+    font-size: 0.7rem;
+    display: none;
+  }
+
+  input:user-invalid + .error-message {
+    display: initial;
+  }
+}
+
+.register {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+@media (max-width: 900px) {
+  .apply-layout {
+    display: flex;
+    flex-flow: column wrap;
+
+    h1 {
+      font-size: 30px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .apply-layout {
+      background-color: orange;
+    }
+  }
+}
+
+.notice {
+  font-size: 0.75rem;
+}
+
+/*------------------------------------------------ 영역 확인용 */
+.apply-title {
+  background-color: pink;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
