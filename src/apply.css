@@ -4,26 +4,57 @@
   box-shadow: 0 0 0 2px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 15px;
+  padding: 33px 30px 15px 30px;
 
   h1 {
+    font-size: 2rem;
     place-items: center;
-    background-color: yellow;
+    /* background-color: yellow; */
+    justify-self: start;
+    align-self: center;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
   }
 }
 
 form {
   display: grid;
+  grid-template-columns: minmax(200px, 1fr);
+  grid-auto-rows: auto;
   gap: 10px;
+
+  input {
+    padding: 8px;
+    border: 1px solid lightgrey;
+  }
 
   .error-message {
     color: red;
     font-size: 0.7rem;
     display: none;
+    margin-block: 0;
   }
 
+  input:user-invalid {
+    &.email {
+      border: 2px solid green;
+    }
+    &.password {
+      border: 2px solid red;
+    }
+  }
   input:user-invalid + .error-message {
     display: initial;
+  }
+
+  select {
+    padding: 8px;
+    border: 1px solid lightgrey;
+    appearance: none;
+    font-weight: bold;
   }
 }
 
@@ -31,32 +62,52 @@ form {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  margin-block: 30px;
+
+  button {
+    border: 0;
+    padding-inline: 30px;
+    background: rgb(98, 110, 204);
+    color: white;
+  }
+
+  .login {
+    padding-inline: 15px;
+  }
 }
 
 @media (max-width: 900px) {
   .apply-layout {
     display: flex;
     flex-flow: column wrap;
+    align-items: flex-start;
 
     h1 {
-      font-size: 30px;
+      font-size: 1.5rem;
+      place-self: flex-start;
     }
   }
 
   @media (max-width: 500px) {
     .apply-layout {
-      background-color: orange;
+      border: 2px solid lime;
+
+      h1 {
+        font-size: 1.2rem;
+        place-self: flex-start;
+      }
     }
   }
 }
 
 .notice {
   font-size: 0.75rem;
+  margin-block: 30px;
 }
 
-/*------------------------------------------------ 영역 확인용 */
 .apply-title {
-  background-color: pink;
+  /* background-color: pink; */
+  font-size: 0.875rem;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
