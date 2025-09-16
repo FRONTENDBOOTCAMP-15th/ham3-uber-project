@@ -1,0 +1,182 @@
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: polygon(0% 0%, 0% 0%, 0% 0%);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+:root {
+  --button-color: #0075ff;
+  --error-message-color: #e11900;
+  --error-email-color: #048848;
+  --select-bg-color: #f8f7f7;
+  --select-bd-color: #d3d3d3;
+}
+
+.apply-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  padding: 33px 30px 15px 30px;
+
+  .apply-title {
+    font-size: 0.875rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 15px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    place-items: center;
+    justify-self: start;
+    align-self: center;
+    margin-block: 0;
+  }
+
+  a {
+    text-decoration: none;
+    display: inline-block;
+    border-bottom: 2px solid lightgrey;
+    padding-bottom: 3px;
+
+    color: black;
+  }
+}
+
+.apply-form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 12px;
+  width: 100%;
+
+  .name-row {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+  }
+
+  .name-row > input {
+    flex: 1;
+    min-width: 0;
+  }
+
+  input {
+    padding: 0.5rem;
+    background: var(--select-bg-color);
+    border: 1px solid var(--select-bd-color);
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  .error-message {
+    color: var(--error-message-color);
+    font-size: 0.7rem;
+    display: none;
+    margin-block: 0.625rem;
+    line-height: 1;
+  }
+
+  input:user-invalid.email {
+    border: 0.125rem solid var(--error-email-color);
+    background-color: rgba(32, 218, 81, 0.1);
+  }
+
+  input:user-invalid.password {
+    border: 0.125rem solid var(--error-message-color);
+    background-color: rgba(255, 0, 0, 0.1);
+  }
+
+  input:user-invalid + .error-message {
+    display: block;
+  }
+
+  .password-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .password {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .city {
+    padding: 0.5rem;
+    background: rgb(248, 247, 247);
+    border: 0.0625rem solid lightgrey;
+    appearance: none;
+    font-weight: bold;
+  }
+
+  select:focus {
+    outline: none;
+  }
+}
+
+.register {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-block: 1.875rem;
+
+  button {
+    border: 0;
+    padding-inline: 1.875rem;
+    background: var(--button-color);
+    color: white;
+    cursor: pointer;
+  }
+
+  .login-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.9375rem;
+  }
+
+  .account {
+    display: inline-block;
+    border-bottom: 0.125rem solid transparent;
+    padding-bottom: 0.1875rem;
+  }
+
+  .login {
+    font-weight: bold;
+  }
+}
+
+@media (max-width: 56.25rem) {
+  .apply-layout {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+
+    h1 {
+      font-size: 1.5rem;
+      place-self: flex-start;
+    }
+  }
+
+  @media (max-width: 31.25rem) {
+    .apply-layout {
+      h1 {
+        font-size: 1.2rem;
+        place-self: flex-start;
+      }
+    }
+  }
+}
+
+.notice {
+  font-size: 0.75rem;
+  margin-block: 30px;
+}
