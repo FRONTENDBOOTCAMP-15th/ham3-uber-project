@@ -3,58 +3,104 @@
 .apply-layout {
   box-shadow: 0 0 0 2px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.3fr;
   padding: 33px 30px 15px 30px;
+
+  .apply-title {
+    font-size: 0.875rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 15px;
+  }
 
   h1 {
     font-size: 2rem;
     place-items: center;
-    /* background-color: yellow; */
     justify-self: start;
     align-self: center;
+    margin-block: 0;
   }
 
   a {
     text-decoration: none;
+    display: inline-block;
+    border-bottom: 2px solid lightgrey;
+    padding-bottom: 3px;
+
     color: black;
   }
 }
 
-form {
-  display: grid;
-  grid-template-columns: minmax(200px, 1fr);
-  grid-auto-rows: auto;
-  gap: 10px;
+.apply-form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 12px;
+  width: 100%;
+
+  .name-row {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+  }
+
+  .name-row > input {
+    flex: 1;
+    min-width: 0;
+  }
 
   input {
     padding: 8px;
+    background: rgb(248, 247, 247);
     border: 1px solid lightgrey;
+  }
+
+  input:focus {
+    outline: none;
   }
 
   .error-message {
     color: red;
     font-size: 0.7rem;
     display: none;
-    margin-block: 0;
+    margin-block: 10px;
+    line-height: 1;
   }
 
-  input:user-invalid {
-    &.email {
-      border: 2px solid green;
-    }
-    &.password {
-      border: 2px solid red;
-    }
+  input:user-invalid.email {
+    border: 2px solid green;
+    background-color: rgba(32, 218, 81, 0.1);
   }
+
+  input:user-invalid.password {
+    border: 2px solid red;
+    background-color: rgba(255, 0, 0, 0.1);
+  }
+
   input:user-invalid + .error-message {
-    display: initial;
+    display: block;
   }
 
-  select {
+  .password-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .password {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .city {
     padding: 8px;
+    background: rgb(248, 247, 247);
     border: 1px solid lightgrey;
     appearance: none;
     font-weight: bold;
+  }
+
+  select:focus {
+    outline: none;
   }
 }
 
@@ -69,10 +115,23 @@ form {
     padding-inline: 30px;
     background: rgb(98, 110, 204);
     color: white;
+    cursor: pointer;
+  }
+
+  .login-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .account {
+    display: inline-block;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 3px;
   }
 
   .login {
-    padding-inline: 15px;
+    font-weight: bold;
   }
 }
 
@@ -103,13 +162,4 @@ form {
 .notice {
   font-size: 0.75rem;
   margin-block: 30px;
-}
-
-.apply-title {
-  /* background-color: pink; */
-  font-size: 0.875rem;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
 }
