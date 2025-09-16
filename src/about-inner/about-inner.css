@@ -1,0 +1,72 @@
+@import url(./../styles/theme.css);
+
+/* 기본: 모바일 (<=500px) → 2행 */
+.info-section {
+  width: 31.25rem;
+  height: 29.25rem;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  padding: 1rem;
+  background: var(--color-white);
+  white-space: nowrap;
+}
+
+.info-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.info-icon {
+  width: 2rem;
+  height: 2rem;
+  fill: var(--color-primary-secondary);
+}
+
+.info-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-primary-secondary);
+}
+
+.info-desc {
+  font-size: 0.9rem;
+  color: var(--color-black);
+}
+
+.info-link {
+  display: inline-block !important;
+  align-self: flex-start;
+  padding-bottom: 0.25rem;
+  border-bottom: 0.0625rem solid var(--color-black);
+  text-decoration: none;
+  color: var(--color-black);
+}
+
+.info-link:visited {
+  color: var(--color-black);
+}
+
+/* 태블릿 (501px~850px) → 2열 */
+@media (min-width: 501px) and (max-width: 850px) {
+  .info-section {
+    width: 53.125rem;
+    height: 16.375rem;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+  }
+}
+
+/* 데스크톱 (>=851px) → 2열 */
+@media (min-width: 851px) {
+  .info-section {
+    width: 80rem;
+    height: 17.375rem;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+  }
+}
