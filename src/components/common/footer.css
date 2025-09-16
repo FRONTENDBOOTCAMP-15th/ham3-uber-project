@@ -1,0 +1,210 @@
+body {
+  font-weight: 600;
+  margin: 0;
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+  width: 100vw;
+  height: 100vh;
+}
+
+.main-footer {
+  --color-background: #0075ff;
+  --color-font: #fff;
+  --color-footer-legal: #a6a6a6;
+
+  /* footer-wrapper  */
+  --wrapper-inline-size: 76.2%;
+  --wrapper-block-size: 81.8%;
+
+  /* 고객지원 센터  */
+  --support-inline-size: 9em;
+  --support-gab: 1.625em;
+
+  /* navigation(기업정보, 상품, 글로벌 시민의식) */
+  --nav-inline-size: 54.68%;
+  --nav-li-margin-block-end: 1em;
+  --nav-li-hover-color: #003366;
+
+  /* link area (f-book,youtube,instar,google,app) */
+  --link-inline-size: 42.42%;
+  --link-social-inline-size: 43.46%;
+  --link-social-min-size: 151px;
+  --link-social-div-gap: 0.2em;
+
+  /* legal area */
+  --legal-font-size: 0.63em;
+  --legal-content-small-flex: 4;
+  --legal-content-p-flex: 6;
+  --legal-link-inline-size: 39.85%;
+  --legal-link-between-magin: 2em;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--color-background);
+  block-size: inherit;
+  color: var(--color-font);
+
+  .footer-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    inline-size: var(--wrapper-inline-size);
+    block-size: var(--wrapper-block-size);
+
+    /* 고객지원 */
+    .support-center {
+      display: flex;
+      flex-direction: column;
+      gap: var(--support-gab);
+      inline-size: fit-content;
+    }
+
+    /* fotter menu */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      inline-size: var(--nav-inline-size);
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+          margin-block-end: var(--nav-li-margin-block-end); /* 각 항목 아래에 10px의 간격 추가 */
+          a:hover {
+            color: var(--nav-li-hover-color);
+          }
+        }
+      }
+    }
+
+    /* footer-link-all */
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+
+      .footer-link {
+        display: flex;
+        justify-content: space-between;
+        inline-size: var(--link-inline-size);
+        align-items: center;
+
+        .footer-social {
+          inline-size: var(--link-social-inline-size);
+
+          .footer-icons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+        }
+
+        .footer-locale {
+          min-inline-size: var(--link-social-min-size);
+          display: flex;
+          justify-content: space-between;
+          > div {
+            display: flex;
+            align-items: center;
+            gap: var(--link-social-div-gap);
+          }
+        }
+      }
+    }
+
+    .footer-legal {
+      display: flex;
+      align-items: center;
+      font-size: var(--legal-font-size);
+      color: var(--color-footer-legal);
+
+      .footer-legal-content {
+        display: flex;
+        align-items: center;
+
+        > small {
+          flex: var(--legal-content-small-flex);
+        }
+
+        > p {
+          flex: var(--legal-content-p-flex);
+        }
+      }
+
+      .footer-legal-links {
+        inline-size: var(--legal-link-inline-size);
+        text-align: end;
+
+        a {
+          color: var(--color-footer-legal);
+          &:last-child {
+            margin-inline-start: var(--legal-link-between-magin);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  html {
+    font-size: 13px;
+  }
+  .main-footer {
+    .footer-wrapper {
+      --wrapper-inline-size: 100%;
+      padding: 6.59% 3.76%;
+      nav {
+        inline-size: 100%;
+      }
+      .footer-bottom {
+        flex-wrap: wrap;
+        .footer-link {
+          inline-size: 100%;
+          margin-block-end: 10px;
+          .footer-social {
+            inline-size: 30.05%;
+          }
+        }
+        .footer-apps {
+          a {
+            display: block;
+            margin-block-start: 1em;
+          }
+        }
+      }
+      .footer-legal {
+        flex-wrap: wrap;
+        .footer-legal-content {
+          > small {
+            flex: 0 0 15.27%;
+          }
+        }
+        .footer-legal-links {
+          text-align: start;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  html {
+    font-size: 11px;
+  }
+  .main-footer .footer-wrapper .footer-bottom .footer-link {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
+  }
+  .main-footer .footer-wrapper .footer-bottom .footer-apps a {
+    display: inline-block;
+    margin-block-start: 0; 
+    margin-inline-end: 1em;
+  }
+}

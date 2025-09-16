@@ -1,0 +1,123 @@
+@import url(./../styles/theme.css);
+
+/* 기본: 모바일 (<=500px) */
+.ut-banner {
+  position: relative;
+  width: 31.25rem;
+  height: 16rem;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.background-image {
+  position: absolute;
+  inset: 0;
+  background: url('./../visual-banner/image/Mobile.svg') no-repeat center/cover;
+}
+
+.banner-content {
+  position: absolute;
+  top: 2.5rem;
+  left: 1.5rem;
+  max-width: 16.25rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 왼쪽 정렬 */
+  color: var(--color-primary-secondary);
+}
+
+.banner-title {
+  font-size: 1.775rem;
+  line-height: 140%;
+  font-weight: 700;
+  margin: 0 0 1.75rem 0; /* p 태그와 간격 */
+}
+
+.banner-desc {
+  font-size: 1rem;
+  line-height: 150%;
+  margin: 0 0 1.75rem 0; /* 버튼과 간격 */
+  white-space: nowrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  background: var(--color-primary-secondary);
+  color: white;
+  font-size: 1rem;
+  line-height: 150%;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.btn-icon {
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+}
+
+/* 태블릿 (>=501px) */
+@media (min-width: 501px) {
+  .ut-banner {
+    width: 53.125rem;
+    height: 22.4375rem;
+  }
+
+  .background-image {
+    background-image: url('./../visual-banner/image/Tablet.svg');
+  }
+
+  .banner-content {
+    top: 3.5rem; /* 태블릿에서 조금 더 내려줌 */
+    left: 2.5rem;
+    max-width: 18.75rem;
+  }
+
+  .banner-title {
+    font-size: 2.3687rem;
+  }
+
+  .banner-desc {
+    font-size: 1rem;
+  }
+
+  .btn-primary {
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+  }
+}
+
+/* 데스크탑 (>=851px) */
+@media (min-width: 851px) {
+  .ut-banner {
+    width: 105rem;
+    height: 25rem;
+  }
+
+  .background-image {
+    background-image: url('./image/UberTaxi.svg');
+  }
+
+  .banner-content {
+    top: 4rem; /* 더 넉넉하게 */
+    left: 16.5rem;
+    max-width: 25rem;
+  }
+
+  .banner-title {
+    font-size: 2rem;
+  }
+
+  .banner-desc {
+    font-size: 1rem;
+  }
+
+  .btn-primary {
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+  }
+}
